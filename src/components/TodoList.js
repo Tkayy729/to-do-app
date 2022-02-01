@@ -15,15 +15,15 @@ const TodoList = () => {
       <TodoInput />
       <ul>
         <TransitionGroup className="todo-list">
-          {state.todos.todo &&
-            state.todos.todo.map((todo) => {
+          {state.todos.todos &&
+            state.todos.todos.map((todo) => {
               return (
                 <CSSTransition key={todo.id} classNames="todo">
                   <Todo
                     key={todo.id}
                     id={todo.id}
                     task={todo.task}
-                    complete={todo.completed}
+                    completed ={todo.completed}
                     toggleTodo = {() => dispatch(completeTodo(todo))}
                   />
                 </CSSTransition>
