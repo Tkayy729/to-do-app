@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./TodoInput.css";
 
-const TodoInput = () => {
+const TodoInput = ({createTodo}) => {
   const [task, setTask] = useState("");
 
-  const handleSubmit =() =>{
-      
+  const handleSubmit =(e) =>{
+    e.preventDefault();
+    createTodo(task);
+    setTask("")
+
   }
   return (
     <form className="TodoInput" onSubmit={handleSubmit}>

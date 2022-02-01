@@ -4,15 +4,20 @@ import Todo from "./Todo";
 import "./TodoList.css";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
-import { completeTodo } from "../redux/action";
+import { completeTodo,addTodo } from "../redux/action";
 
 const TodoList = () => {
   const state = useSelector((state) => ({ ...state }));
   let dispatch = useDispatch();
+
+  const create = (newTodo) =>{
+    dispatch(addTodo(newTodo))
+  }
+
   return (
     <div className="TodoList">
       <h1>Todo App with React Redux</h1>
-      <TodoInput />
+      <TodoInput createTodo ={create} />
       <ul>
         <TransitionGroup className="todo-list">
           {state.todos.todos &&

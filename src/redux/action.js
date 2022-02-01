@@ -1,8 +1,16 @@
 import * as types from "./actionTypes"
 
-export const completeTodo = (todo) => {
+
+export const completeTodo = (todos) => {
     return{
         type: types.COMPLETE_TODO,
-        payload: todo
+        payload: todos
+    }
+}
+export const addTodo = (todos) =>{
+    return {
+        type: types.ADD_TODO,
+        payload: todos
+
     }
 }
